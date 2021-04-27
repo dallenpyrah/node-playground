@@ -6,6 +6,10 @@ export class CarsController extends BaseController {
         super("api/cars")
         this.router
         .get("", this.getAllCars)
+        .get("/:id", this.getOneCar)
+        .post("", this.createOneCar)
+        .delete("/:id", this.deleteOneCar)
+        .put("/:id", this.editOneCar)
     }
 
     async getAllCars(req, res, next){

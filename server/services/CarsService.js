@@ -1,18 +1,20 @@
+import { dbContext } from "../db/DbContext";
+
 class CarsService{
     editOneCar(id, body) {
-        throw new Error("Method not implemented.");
+        return dbContext.Cars.findByIdAndUpdate(id, body)
     }
     deleteOne(id) {
-        throw new Error("Method not implemented.");
+        return dbContext.Cars.deleteOne(id)
     }
     createCar(body) {
-        throw new Error("Method not implemented.");
+        return dbContext.Cars.create(body)
     }
     findById(id) {
-        throw new Error("Method not implemented.");
+        return dbContext.Cars.findById(id)
     }
-    find() {
-        throw new Error("Method not implemented.");
+    find(query = {}) {
+        return dbContext.Cars.find(query)
     }
 
 }
