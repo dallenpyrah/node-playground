@@ -5,7 +5,7 @@ class CarsService{
         return dbContext.Cars.findByIdAndUpdate(id, body)
     }
     deleteOne(id) {
-        return dbContext.Cars.deleteOne(id)
+        return dbContext.Cars.findByIdAndDelete(id)
     }
     createCar(body) {
         return dbContext.Cars.create(body)
