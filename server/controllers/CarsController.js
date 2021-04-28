@@ -1,4 +1,5 @@
 import { carsService } from "../services/CarsService";
+import { recordsService } from "../services/RecordsService";
 import BaseController from "../utils/BaseController";
 
 export class CarsController extends BaseController {
@@ -7,11 +8,19 @@ export class CarsController extends BaseController {
         this.router
         .get("", this.getAllCars)
         .get("/:id", this.getOneCar)
+        .get("/:id/records", this.getRecordsByCarId)
         .post("", this.createOneCar)
         .delete("/:id", this.deleteOneCar)
         .put("/:id", this.editOneCar)
     }
 
+    async getRecordsByCarId(req, res, next){
+        try {
+            return res.send(await recordsService.find(req.params.id))
+        } catch (error) {
+            next(error)
+        }
+    }
     async getAllCars(req, res, next){
         try {
             return res.send(await carsService.find())       
