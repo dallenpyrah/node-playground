@@ -15,7 +15,7 @@ export class HumansController extends BaseController{
 
     async getAllHumans(req, res, next){
         try {
-            return res.send(await humansService.getAllHumans())
+            return res.send(await humansService.find())
         } catch (error) {
             next(error)
         }

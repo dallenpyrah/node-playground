@@ -3,19 +3,19 @@ import { dbContext } from "../db/DbContext";
 
 class HumansService {
     editOneHuman(id, body) {
-        throw new Error("Method not implemented.");
+        return dbContext.Humans.findByIdAndUpdate(id, body)
     }
     deleteOneHuman(id) {
-        throw new Error("Method not implemented.");
+        return dbContext.Humans.findByIdAndDelete(id)
     }
     createOneHuman(body) {
-        throw new Error("Method not implemented.");
+        return dbContext.Humans.create(body)
     }
     getOneHuman(id) {
-        throw new Error("Method not implemented.");
+        return dbContext.Humans.findById(id)
     }
-    getAllHumans(query = {}) {
-        return dbContext
+    find(query = {}) {
+        return dbContext.Humans.find(query)
     } 
 
 }
