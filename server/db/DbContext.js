@@ -2,6 +2,7 @@ import ValueSchema from "../models/Value";
 import CarSchema from "../models/Car"
 import RecordSchema from "../models/Record"
 import FoodItemSchema from "../models/FoodItem"
+import HumanSchema from "../models/Human"
 import mongoose, { mongo } from "mongoose";
 
 class DbContext {
@@ -10,6 +11,8 @@ class DbContext {
   Records = mongoose.model("Record", RecordSchema)
 
   FoodItems = mongoose.model("FoodItem", FoodItemSchema)
+
+  Humans = mongoose.model("Human", HumanSchema)
 }
 
 export const dbContext = new DbContext();
